@@ -12,7 +12,30 @@
  * GitHub Branch: master
 */
 
+define( 'livetracker_version', '1.0' );
+define( 'livetracker_plugin_url', plugin_dir_url( __FILE__ ) );
 
+
+require_once 'inc/plugin-enqueue.php';
+require_once 'inc/settings-menu.php';
+
+
+class live_tracker {
+	
+	function __init() {
+		
+		$livetracker_scripts = new livetracker_enqueue();
+		$livetracker_scripts->__init();
+		
+		$livetracker_menu = new livetracker_menu();
+		$livetracker_menu->__init();
+		
+	}
+	
+}
+
+$liveTracker = new live_tracker();
+$liveTracker->__init();
 
 
 

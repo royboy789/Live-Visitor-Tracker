@@ -1,0 +1,1 @@
+!function(e){console.log("here admin")}(jQuery);
