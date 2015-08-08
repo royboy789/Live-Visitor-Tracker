@@ -21,18 +21,17 @@
 	
 	var amOnline = new Firebase( livetracker_data.firebase_url + '/.info/connected' );
 	var userRef = new Firebase( livetracker_data.firebase_url + '/presence/' + user_id );
+	userRef.set({
+		online: true,
+		user: Boolean( livetracker_data.user ),
+		user_id: parseInt( user_id ),
+		user_username: user_username,
+		location: current_loc,
+		browser: $.browser
+	});
 	amOnline.on('value', function(snapshot) {
 		if (snapshot.val()) {
-			console.log( livetracker_data.firebase_url );
 			userRef.onDisconnect().remove();
-			userRef.set({
-				online: true,
-				user: Boolean( livetracker_data.user ),
-				user_id: parseInt( user_id ),
-				user_username: user_username,
-				location: current_loc,
-				
-			});
 		}
 	});
 })(jQuery);
