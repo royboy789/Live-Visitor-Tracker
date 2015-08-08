@@ -1,0 +1,19 @@
+<table class="widefat">
+	<thead>
+		<tr>
+			<th style="manage-column">User Name &amp; ID</th>
+			<th style="manage-column">Current page</th>
+		<tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in users_online track by $index">
+			<td>
+				<strong ng-if="!user.user">Unknown User</strong>
+				<strong ng-if="user.user">{{user.user_username}} ({{user.user_id}})</strong>
+			</td>
+			<td>
+				{{user.location}}
+			</td>
+		</tr>
+	</tbody>
+</table>

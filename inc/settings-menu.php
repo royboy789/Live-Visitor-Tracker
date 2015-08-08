@@ -60,21 +60,7 @@ class livetracker_menu {
 		}
 		
 		echo '<h3>Users</h3>';
-		echo '<table class="widefat">';
-			echo '<thead>';
-				echo '<tr>';
-					echo '<th style="manage-column">User Name &amp; ID</th>';
-					echo '<th style="manage-column">Current page</th>';
-				echo '<tr>';
-			echo '</thead>';
-			echo '<tbody>';
-				echo '<tr>';
-					echo '<td><strong>Unknown User</strong></td><td>'.get_bloginfo('wpurl').'</td>';
-				echo '</tr><tr>';
-					echo '<td><strong>User 23 - Roy Sivan</strong></td><td>'.get_bloginfo('wpurl').'</td>';				
-				echo '</tr>';
-			echo '</tbody>';
-		echo '</table>';
+		echo '<div ng-app="wp_livetracker"><live-tracker></live-tracker></div>';
 		
 	}
 }
