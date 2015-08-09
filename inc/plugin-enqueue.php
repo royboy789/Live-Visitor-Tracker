@@ -24,7 +24,7 @@ class livetracker_enqueue {
 		if( get_option( '__livetracker_firebase' ) ) {
 			$localized_obj['firebase_url'] = get_option( '__livetracker_firebase' );
 		}
-		
+				
 		wp_localize_script(
 			'livetracker_admin',
 			'livetracker_data',
@@ -63,6 +63,14 @@ class livetracker_enqueue {
 		
 		if( get_option( '__livetracker_firebase' ) ) {
 			$localized_obj['firebase_url'] = get_option( '__livetracker_firebase' );
+		}
+		
+		$request = wp_remote_get('http://www.telize.com/geoip');
+		if( !is_wp_error( $request ) ){
+			$localized_obj['location'] = json_decode( $request['body'] );	
+		} else {
+			$localized_obj['location'] = false;
+			$localized_obj['location_error'] = $request->message;
 		}
 		
 		wp_localize_script(

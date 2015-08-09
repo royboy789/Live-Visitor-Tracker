@@ -3,6 +3,8 @@
 		<tr>
 			<th style="manage-column">User Name &amp; ID</th>
 			<th style="manage-column">Current page</th>
+			<th style="manage-column">Geo Location (Country)</th>
+			<th style="manage-column">Browser Information</th>
 		<tr>
 	</thead>
 	<tbody>
@@ -12,7 +14,13 @@
 				<strong ng-if="user.user">{{user.user_username}} ({{user.user_id}})</strong>
 			</td>
 			<td>
-				{{user.location}}
+				{{user.viewing}}
+			</td>
+			<td>
+				<strong>{{ user.geo_location | json }}</strong>
+			</td>
+			<td>
+				{{ user.browser | json }}
 			</td>
 		</tr>
 	</tbody>
