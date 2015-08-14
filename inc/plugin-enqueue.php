@@ -14,7 +14,7 @@ class livetracker_enqueue {
 		wp_enqueue_script( 'angular-core', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js', array( 'jquery' ), '1.3.15', true );
 		wp_enqueue_script( 'firebase', '//cdn.firebase.com/js/client/2.0.4/firebase.js', array('angular-core'), livetracker_version, true );
 		wp_enqueue_script( 'ngFire', livetracker_plugin_url . 'build/js/angularfire.min.js', array( 'firebase' ), livetracker_version, true );
-		wp_enqueue_script( 'livetracker_admin', livetracker_plugin_url . 'build/js/admin/wp_livetracker_admin.js', array( 'angularfire' ), livetracker_version, false );
+		wp_enqueue_script( 'livetracker_admin', livetracker_plugin_url . 'build/js/admin/wp_livetracker_admin.js', array( 'ngfire' ), livetracker_version, false );
 		//wp_enqueue_script( 'livetracker_admin', livetracker_plugin_url . 'assets/js/admin/wp_livetracker.js', array( 'ngFire' ), livetracker_version, true );
 		
 		
@@ -38,7 +38,7 @@ class livetracker_enqueue {
 		
 		wp_enqueue_script( 'firebase', '//cdn.firebase.com/js/client/2.0.4/firebase.js', array('jquery'), livetracker_version, true );
 		//wp_enqueue_script( 'angularfire', livetracker_plugin_url . 'build/js/angularfire.min.js', array( 'firebase' ), livetracker_version, true );
-		wp_enqueue_script( 'livetracker_public', livetracker_plugin_url . 'build/js/public/wp_livetracker_public.js', array( 'angularfire' ), livetracker_version, true );
+		wp_enqueue_script( 'livetracker_public', livetracker_plugin_url . 'build/js/public/wp_livetracker_public.js', array( 'firebase' ), livetracker_version, true );
 		//wp_enqueue_script( 'livetracker_public', livetracker_plugin_url . 'assets/js/public/wp_livetracker.js', array( 'firebase' ), livetracker_version, true );
 		
 		$localized_obj = array();
