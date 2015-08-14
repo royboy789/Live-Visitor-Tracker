@@ -26,8 +26,7 @@ class livetracker_menu {
 		
 		if( isset( $_POST['__livetracker_firebase'] ) ) {
 			
-			$firebase_url = $_POST['__livetracker_firebase'];
-			update_option( '__livetracker_firebase', $firebase_url );
+			update_option( '__livetracker_firebase', $_POST['__livetracker_firebase'] );
 			
 		}
 		

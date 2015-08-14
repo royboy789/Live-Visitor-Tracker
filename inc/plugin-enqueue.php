@@ -37,9 +37,9 @@ class livetracker_enqueue {
 	function __livetracker_public_scripts() {
 		
 		wp_enqueue_script( 'firebase', '//cdn.firebase.com/js/client/2.0.4/firebase.js', array('jquery'), livetracker_version, true );
-		wp_enqueue_script( 'angularfire', livetracker_plugin_url . 'build/js/angularfire.min.js', array( 'firebase' ), livetracker_version, true );
+		//wp_enqueue_script( 'angularfire', livetracker_plugin_url . 'build/js/angularfire.min.js', array( 'firebase' ), livetracker_version, true );
 		//wp_enqueue_script( 'livetracker_public', livetracker_plugin_url . 'build/js/public/wp_livetracker_public.js', array( 'angularfire' ), livetracker_version, true );
-		wp_enqueue_script( 'livetracker_public', livetracker_plugin_url . 'assets/js/public/wp_livetracker.js', array( 'angularfire' ), livetracker_version, true );
+		wp_enqueue_script( 'livetracker_public', livetracker_plugin_url . 'assets/js/public/wp_livetracker.js', array( 'firebase' ), livetracker_version, true );
 		
 		$localized_obj = array();
 		
@@ -70,7 +70,7 @@ class livetracker_enqueue {
 			$localized_obj['location'] = json_decode( $request['body'] );	
 		} else {
 			$localized_obj['location'] = false;
-			$localized_obj['location_error'] = $request->message;
+			$localized_obj['location_error'] = $request->get_error_message();
 		}
 		
 		wp_localize_script(

@@ -5,11 +5,9 @@
 	}
 	
 	var user_id = Math.floor((Math.random() * 1500) + 1000),
-	user_username = 0,
-	is_user = false;
+	user_username = 0;
 	
 	if( Boolean( livetracker_data.user ) ) {
-		is_user: true;
 		user_id = livetracker_data.user_id;
 		user_username = livetracker_data.user_username;
 	}
